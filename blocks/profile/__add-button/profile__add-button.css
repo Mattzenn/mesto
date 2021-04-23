@@ -21,5 +21,6 @@
     .profile__add-button {
         max-width: 282px;
         width: 100%;
+        background-image: url(../../../images/Vector_s.svg);
     }
 }

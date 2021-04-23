@@ -5,7 +5,7 @@
     background-image: url(../../../images/Vector__edit.svg);
     background-color: transparent;
     background-repeat: no-repeat;
-    border: 2px solid #FFFFFF;
+    border: 1px solid #FFFFFF;
     background-position: center;
     transition: .2s;
     outline: none;
@@ -20,5 +20,6 @@
     .profile__edit-button {
         width: 18px;
         height: 18px;
+        background-image: url(../../../images/Vector_S_K.svg);
     }
 }
