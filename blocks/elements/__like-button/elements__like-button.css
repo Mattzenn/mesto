@@ -1,0 +1,8 @@
+.elements__like-button {
+    margin: 5px 5px 5px 0;
+}
+
+.elements__like-button:hover {
+    opacity: .5;
+    cursor: pointer;
+}
