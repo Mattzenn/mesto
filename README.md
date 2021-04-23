@@ -19,6 +19,6 @@
 HTML / CSS / BEM
 JavaScript
 
-* [Ссылка на проект](https://mattzenn.github.io/mesto/index.html)
+* [Ссылка на проект](https://mattzenn.github.io/mesto/)
 
 ------ 
