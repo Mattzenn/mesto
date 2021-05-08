@@ -59,7 +59,7 @@ function formSubmitHandler(evt) {
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
 
-    profilePopup.classList.toggle('popup_opened')
+    togglePopup(profilePopup);
 }
 
 formElement.addEventListener('submit', formSubmitHandler);
@@ -125,7 +125,7 @@ formElementСardAdd.addEventListener('submit', function(event) {
     const newCardValue = createCard(placeNameValue, placeDescValue);
     placeCard.prepend(newCardValue);
 
-    togglePopup(popupСardAdd);
+    togglePopupСardAdd();
 
     placeNameInput.value = ""
     placeDescInput.value = ""
@@ -146,7 +146,7 @@ const popupElTitel = document.querySelector('.elements__title');
 function togglePopupСardZoom(name, link) {
     popupCaption.textContent = name;
     popupImage.src = link;
-    togglePopup(popupZoom);
+    togglePopupСardZoomClose();
 }
 
 function togglePopupСardZoomClose() {
