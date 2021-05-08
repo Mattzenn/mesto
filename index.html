@@ -36,19 +36,19 @@
         <div class="popup__container">
             <form class="popup__form" name="popupForm">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <input name="userName" class="popup__input popup__input_user_name" type="text" placeholder="Имя" minlength="2" maxlength="40">
-                <input name="userAbout" class="popup__input popup__input_user_description" type="text" placeholder="Профессия" minlength="2" maxlength="100">
+                <input required name="userName" class="popup__input popup__input_user_name" type="text" placeholder="Имя" minlength="2" maxlength="40">
+                <input required name="userAbout" class="popup__input popup__input_user_description" type="text" placeholder="Профессия" minlength="2" maxlength="100">
                 <button type="submit" class="popup__button">Сохранить</button>
             </form>
-            <button type="button" class="popup__close-button"></button>
+            <button type="button" class="popup__close-button popup__close-button_profile-edit"></button>
         </div>
     </div>
     <div class="popup popup_card-add">
         <div class="popup__container">
             <form class="popup__form" name="popupForm">
                 <h2 class="popup__title">Новое место</h2>
-                <input name="placeName" class="popup__input popup__input_place_name" type="text" placeholder="Название" minlength="2" maxlength="40">
-                <input name="link" class="popup__input popup__input_place_description" type="url" placeholder="Ссылка на картинку" minlength="2" maxlength="100000">
+                <input required name="placeName" class="popup__input popup__input_place_name" type="text" placeholder="Название" minlength="2" maxlength="40">
+                <input required name="link" class="popup__input popup__input_place_description" type="url" placeholder="Ссылка на картинку" minlength="2" maxlength="100000">
                 <button type="submit" class="popup__button">Создать</button>
             </form>
             <button type="button" class="popup__close-button popup__close-button_card-add"></button>
