@@ -28,35 +28,38 @@ const initialCards = [{
 ];
 //функция открытия и закрытия попапа
 
-function Esc(event) {
+function closePopupByEsc(event) {
     if (event.key === 'Escape') {
         const openPop = document.querySelector('.popup_opened');
         closePopup(openPop);
     }
 }
 
+function closePopupByOverlay(evt) {
+    if (evt.target === evt.currentTarget) {
+        closePopup(evt.target);
+    }
+}
+
+
 function openPopup(popup) {
     popup.classList.add('popup_opened');
 
-    document.addEventListener('keyup', Esc);
-
-    popup.addEventListener('click', function(event) {
-        if (event.target === event.currentTarget) {
-            closePopup(popup);
-        }
-    });
+    document.addEventListener('keyup', closePopupByEsc);
+    popup.addEventListener('click', closePopupByOverlay);
 
 }
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
-    document.removeEventListener('keyup', Esc);
+    document.removeEventListener('keyup', closePopupByEsc);
+    popup.removeEventListener('click', closePopupByOverlay);
 }
 
 
 //попап для изменения профиля
-openPopupButton.addEventListener('click', toggleProfilePopupOpen);
-closeProfilePopupButton.addEventListener('click', toggleProfilePopupClose);
+openPopupButton.addEventListener('click', openProfilePopup);
+closeProfilePopupButton.addEventListener('click', closeProfilePopup);
 
 // Находим форму и поля формы в DOM
 const formElementInfoChange = document.querySelector('.popup__container');
@@ -68,7 +71,7 @@ const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__about');
 
 //функция открытия попапа для редактирования профиля
-function toggleProfilePopupOpen(event) {
+function openProfilePopup(event) {
     event.preventDefault();
     openPopup(profilePopup);
     nameInput.value = profileName.textContent;
@@ -76,11 +79,11 @@ function toggleProfilePopupOpen(event) {
 
 }
 
-function toggleProfilePopupClose() {
+function closeProfilePopup() {
     closePopup(profilePopup);
 }
 
-function formSubmitHandler(evt) {
+function handleSubmitButton(evt) {
     evt.preventDefault();
 
     // Вставляем новые значения с помощью textContent
@@ -90,7 +93,7 @@ function formSubmitHandler(evt) {
     closePopup(profilePopup);
 }
 
-formElementInfoChange.addEventListener('submit', formSubmitHandler);
+formElementInfoChange.addEventListener('submit', handleSubmitButton);
 
 //функция открытия формы добавления карточки
 
@@ -146,6 +149,11 @@ initialCards.forEach(function(currentCard) {
     placeCard.prepend(newCardItem);
 });
 
+// находим список импутов и кнопки сабмита
+
+const inputList = Array.from(formElementСardAdd.querySelectorAll('.popup__input'));
+const subButton = formElementСardAdd.querySelector('.popup__button');
+
 // создание карточек при указании значений
 formElementСardAdd.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -161,11 +169,7 @@ formElementСardAdd.addEventListener('submit', function(event) {
     placeNameInput.value = "";
     placeDescInput.value = "";
 
-    const inputList = Array.from(formElementСardAdd.querySelectorAll('.popup__input'));
-    const SubButton = formElementСardAdd.querySelector('.popup__button');
-
-
-    toggleButtonState(SubButton, inputList);
+    toggleButtonState(subButton, inputList);
 });
 
 
