@@ -39,6 +39,7 @@ class Card {
         openPopup(popupZoom);
         popupCaption.textContent = this._name;
         popupImage.src = this._link;
+        popupImage.alt = this._name;
     }
 
     generateCard() {

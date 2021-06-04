@@ -34,7 +34,7 @@
     </footer>
     <div class="popup popup_profile-edit">
         <div class="popup__container">
-            <form class="popup__form" name="popupForm" novalidate>
+            <form class="popup__form" name="popupFormProfile" novalidate>
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <input id="userName" required name="userName" class="popup__input popup__input_user_name" type="text" placeholder="Имя" minlength="2" maxlength="40">
                 <span id="userName-error" class="popup__input-error"></span>
@@ -47,7 +47,7 @@
     </div>
     <div class="popup popup_card-add">
         <div class="popup__container">
-            <form class="popup__form" name="popupForm" novalidate>
+            <form class="popup__form" name="popupFormCard" novalidate>
                 <h2 class="popup__title">Новое место</h2>
                 <input id="placeName" required name="placeName" class="popup__input popup__input_place_name" type="text" placeholder="Название" minlength="2" maxlength="30">
                 <span id="placeName-error" class="popup__input-error"></span>
@@ -76,7 +76,7 @@
                 <h2 class="elements__title"></h2>
                 <button type="button" class="elements__like-button"></button>
             </div>
-            <button class="elements__remove-button"></button>
+            <button class="elements__remove-button" type="button"></button>
         </li>
     </template>
 
