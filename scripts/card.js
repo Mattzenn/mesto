@@ -1,11 +1,12 @@
 import { popupZoom, popupImage, popupCaption } from '../utils/constants.js';
-import { openPopup } from '../utils/utils.js';
+// import { openPopup } from '../utils/utils.js';
 
 class Card {
-    constructor(data, cardSelector) {
+    constructor(data, cardSelector, { handleCardClick }) {
         this._name = data.name;
         this._link = data.link;
-        this._cardSelector = cardSelector
+        this._cardSelector = cardSelector;
+        this._handleCardClick = handleCardClick;
     }
 
     _getTemplate() {
@@ -24,7 +25,12 @@ class Card {
 
         this._element.querySelector('.elements__remove-button').addEventListener('click', () => { this._handleCardDelete(); });
 
-        this._element.querySelector('.elements__image').addEventListener('click', () => { this._togglePopupСardZoom(); });
+        this._element.querySelector('.elements__image').addEventListener('click', () => {
+            this._handleCardClick({
+                name: this._name,
+                src: this._link
+            })
+        });
     }
 
     _handleCardDelete() {
@@ -35,16 +41,11 @@ class Card {
         this._element.querySelector('.elements__like-button').classList.toggle('elements__like-button_active');
     }
 
-    _togglePopupСardZoom() {
-        openPopup(popupZoom);
-        popupCaption.textContent = this._name;
-        popupImage.src = this._link;
-        popupImage.alt = this._name;
-    }
 
     generateCard() {
         this._getTemplate();
         this._setEventListeners();
+
 
         this._element.querySelector('.elements__title').textContent = this._name;
         this._element.querySelector('.elements__image').src = this._link;
