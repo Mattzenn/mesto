@@ -1,6 +1,3 @@
-import { popupZoom, popupImage, popupCaption } from '../utils/constants.js';
-// import { openPopup } from '../utils/utils.js';
-
 class Card {
     constructor(data, cardSelector, { handleCardClick }) {
         this._name = data.name;
