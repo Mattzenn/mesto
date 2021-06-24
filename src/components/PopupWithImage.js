@@ -9,11 +9,9 @@ export class PopupWithImage extends Popup {
     }
 
     open(data) {
-        console.log(data);
         this._popupImage.src = data.src;
         this._popupImage.alt = data.name;
         this._popupCaption.textContent = data.name;
         super.open()
-        console.log(data);
     }
 }

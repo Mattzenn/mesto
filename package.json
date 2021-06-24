@@ -1,0 +1,37 @@
+{
+    "name": "mesto",
+    "version": "1.0.0",
+    "description": "------",
+    "main": "index.js",
+    "scripts": {
+        "build": "rm -rf dist && webpack",
+        "dev": "webpack serve"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Mattzenn/mesto.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Mattzenn/mesto/issues"
+    },
+    "homepage": "https://github.com/Mattzenn/mesto#readme",
+    "dependencies": {
+        "@babel/core": "^7.14.6",
+        "@babel/preset-env": "^7.14.7",
+        "autoprefixer": "^10.2.6",
+        "babel-loader": "^8.2.2",
+        "core-js": "^3.15.1",
+        "cssnano": "^5.0.6",
+        "postcss-loader": "^6.1.0",
+        "webpack": "^5.40.0"
+    },
+    "devDependencies": {
+        "css-loader": "^5.2.6",
+        "html-webpack-plugin": "^5.3.2",
+        "mini-css-extract-plugin": "^1.6.0",
+        "webpack-cli": "^4.7.2",
+        "webpack-dev-server": "^3.11.2"
+    }
+}

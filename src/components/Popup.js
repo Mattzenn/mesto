@@ -7,7 +7,6 @@ export class Popup {
 
     _handleEscClose = (evt) => {
         if (evt.key === 'Escape') {
-            console.log(321);
             this.close();
         }
     }
@@ -21,8 +20,6 @@ export class Popup {
     setEventListeners() {
         this._popup.addEventListener('click', this._closePopupByOverlay);
         this._popup.querySelector('.popup__close-button').addEventListener('click', () => this.close())
-
-        console.log(123);
     }
 
 

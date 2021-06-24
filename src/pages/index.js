@@ -32,6 +32,7 @@ import { Section } from '../components/Section.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
 import { UserInfo } from '../components/UserInfo.js';
+import './index.css';
 
 // 1) Добавление новых карт при загрузке страницы 
 
@@ -39,7 +40,6 @@ const createCard = (item) => {
     const card = new Card(item, '#card-template', {
         handleCardClick: (data) => {
             popupFigure.open(data);
-            console.log(data);
         }
     });
     return card
@@ -63,7 +63,6 @@ const popupСardAddNew = new PopupWithForm('.popup_card-add', (data) => {
     const card = createCard(data);
     const cardElement = card.generateCard();
     cardList.addItem(cardElement);
-    console.log(cardElement)
     popupСardAddNew.close();
 });
 popupСardAddNew.setEventListeners();
