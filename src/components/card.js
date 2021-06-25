@@ -14,11 +14,13 @@ class Card {
             .cloneNode(true);
 
         this._element = newCard;
+        this._likeElement = this._element.querySelector('.elements__like-button')
+        this._Image = this._element.querySelector('.elements__image')
     }
 
     _setEventListeners() {
 
-        this._element.querySelector('.elements__like-button').addEventListener('click', () => { this._handleCardLike(); });
+        this._likeElement.addEventListener('click', () => { this._handleCardLike(); });
 
         this._element.querySelector('.elements__remove-button').addEventListener('click', () => { this._handleCardDelete(); });
 
@@ -35,7 +37,7 @@ class Card {
     }
 
     _handleCardLike() {
-        this._element.querySelector('.elements__like-button').classList.toggle('elements__like-button_active');
+        this._likeElement.classList.toggle('elements__like-button_active');
     }
 
 
@@ -45,8 +47,8 @@ class Card {
 
 
         this._element.querySelector('.elements__title').textContent = this._name;
-        this._element.querySelector('.elements__image').src = this._link;
-        this._element.querySelector('.elements__image').alt = this._name;
+        this._Image.src = this._link;
+        this._Image.alt = this._name;
 
         return this._element
     }

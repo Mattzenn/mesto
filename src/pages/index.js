@@ -26,7 +26,7 @@ import {
     popupCaption,
     popupElTitel,
 } from '../utils/constants.js';
-import Card from '../components/card.js';
+import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 import { Section } from '../components/Section.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
@@ -68,6 +68,7 @@ const popupСardAddNew = new PopupWithForm('.popup_card-add', (data) => {
 popupСardAddNew.setEventListeners();
 
 openPopupButtonСardAdd.addEventListener('click', () => {
+    validatePhoto.removeErrors();
     validatePhoto.enableValidation();
     popupСardAddNew.open()
 })
@@ -83,21 +84,22 @@ popupFigure.setEventListeners();
 
 const userInfo = new UserInfo({ name: '.profile__name', info: '.profile__about' });
 
-const formElementInfoChangeNew = new PopupWithForm('.popup_profile-edit', () => {
+const popupEditProfile = new PopupWithForm('.popup_profile-edit', () => {
     userInfo.setUserInfo(nameInput, jobInput)
-    formElementInfoChangeNew.close()
+    popupEditProfile.close()
 
 });
 
-formElementInfoChangeNew.setEventListeners();
+popupEditProfile.setEventListeners();
 
 openPopupButton.addEventListener('click', () => {
+    validateProfile.enableValidation();
     const userData = userInfo.getUserInfo()
 
     nameInput.value = userData.name
     jobInput.value = userData.info
 
-    formElementInfoChangeNew.open()
+    popupEditProfile.open()
 })
 
 // 5) Валидация
