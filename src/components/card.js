@@ -1,9 +1,12 @@
 class Card {
-    constructor(data, cardSelector, { handleCardClick }) {
+    constructor(data, cardSelector, { handleCardClick }, userId) {
         this._name = data.name;
         this._link = data.link;
+        this._likes = data.likes;
+        this._ownerId = data.owner._id; // юзер у карточки
         this._cardSelector = cardSelector;
         this._handleCardClick = handleCardClick;
+        this._userId = userId; // текущий юзер
     }
 
     _getTemplate() {
@@ -49,6 +52,11 @@ class Card {
         this._element.querySelector('.elements__title').textContent = this._name;
         this._Image.src = this._link;
         this._Image.alt = this._name;
+        this._element.querySelector('.elements__like-count').textContent = this._likes.length
+
+        if (!(this._ownerId === this._userId)) {
+            this._element.querySelector('.elements__remove-button').style.display = 'none'
+        }
 
         return this._element
     }
