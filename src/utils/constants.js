@@ -41,6 +41,11 @@ export const popupCaption = document.querySelector('.popup__caption');
 //откуда берется значение тайтла
 export const popupElTitel = document.querySelector('.elements__title');
 
+//элементы попапа редактирования аватара
+
+export const openAvatarEditButton = document.querySelector('.profile__avatar-button');
+export const popupAvatarEditPopup = document.querySelector('.popup_avatar-edit');
+
 // Конфиг  для валидации
 
 export const config = {
@@ -50,30 +55,3 @@ export const config = {
     errorActiveClass: 'popup__input-error_active',
     submitButtonSelector: '.popup__button',
 };
-
-
-// export const initialCards = [{
-//         name: 'Архыз',
-//         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-//     },
-//     {
-//         name: 'Челябинская область',
-//         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-//     },
-//     {
-//         name: 'Иваново',
-//         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-//     },
-//     {
-//         name: 'Камчатка',
-//         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-//     },
-//     {
-//         name: 'Холмогорский район',
-//         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-//     },
-//     {
-//         name: 'Байкал',
-//         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-//     }
-// ];

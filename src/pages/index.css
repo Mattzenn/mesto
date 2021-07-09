@@ -39,5 +39,6 @@
 @import url('../blocks/popup/__figure/popup__figure.css');
 @import url('../blocks/popup/__image/popup__image.css');
 @import url('../blocks/popup/__caption/popup__caption.css');
+@import url('../blocks/popup/__button/_confirm-delete/popup__button_confirm-delete.css');
 @import url('../blocks/elements/__like-count/elements__like-count.css');
 @import url('../blocks/elements/__like/elements__like.css');

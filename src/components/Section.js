@@ -7,11 +7,12 @@ export class Section {
     // Рендер карточек
 
     renderItems(items) {
-        items.forEach(item => this._renderer(item));
+        items.reverse().forEach(item => this._renderer(item));
     }
 
     // Добавление карточки
+
     addItem(element) {
-        this._container.append(element);
+        this._container.prepend(element);
     }
 }

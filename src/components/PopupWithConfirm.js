@@ -8,6 +8,10 @@ export class PopupWithConfirm extends Popup {
         this._popupForm = this._popup.querySelector('.popup__form')
     }
 
+    setConfirmHandler(submitCallback) {
+        this._submitCallback = submitCallback
+    }
+
     setEventListeners() {
         super.setEventListeners();
         this._popupForm.addEventListener('submit', evt => {
@@ -15,9 +19,4 @@ export class PopupWithConfirm extends Popup {
             this._submitCallback();
         })
     }
-
-
-
-
-
 }

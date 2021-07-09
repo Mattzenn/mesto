@@ -47,6 +47,7 @@
             <button type="button" class="popup__close-button popup__close-button_profile-edit"></button>
         </div>
     </div>
+
     <div class="popup popup_card-add">
         <div class="popup__container">
             <form class="popup__form" name="popupFormCard" novalidate>
@@ -75,11 +76,25 @@
         <div class="popup__container">
             <form class="popup__form" name="popupFormCard" novalidate>
                 <h2 class="popup__title">Вы уверены?</h2>
-                <button type="submit" class="popup__button">Да</button>
+                <button type="submit" class="popup__button popup__button_confirm-delete">Да</button>
             </form>
             <button type="button" class="popup__close-button popup__close-button_card-add"></button>
         </div>
     </div>
+
+    <div class="popup popup_avatar-edit">
+        <div class="popup__container">
+            <form class="popup__form" name="popupFormAvatar" novalidate>
+                <h2 class="popup__title">Обновить аватар</h2>
+                <input id="link" required name="userAvatar" class="popup__input popup__input_place_description" type="url" placeholder="Ссылка на картинку" minlength="2" maxlength="100000">
+                <span id="link-error" class="popup__input-error"></span>
+                <button type="submit" class="popup__button">Сохранить</button>
+            </form>
+            <button type="button" class="popup__close-button popup__close-button_card-add"></button>
+        </div>
+    </div>
+
+
 
     <template id="card-template">
         <li class="elements__card">
