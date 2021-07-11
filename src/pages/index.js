@@ -163,6 +163,8 @@ openPopupButton.addEventListener('click', () => {
     nameInput.value = userData.name
     jobInput.value = userData.info
 
+    validateProfile.removeErrors();
+
     popupEditProfile.open()
 })
 
@@ -185,6 +187,7 @@ const popupAvatarEdit = new PopupWithForm('.popup_avatar-edit', (newdata) => {
 popupAvatarEdit.setEventListeners()
 
 openAvatarEditButton.addEventListener('click', () => {
+    validateAvatar.removeErrors()
     popupAvatarEdit.open();
 })
 
