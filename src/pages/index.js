@@ -37,7 +37,13 @@ import Api from '../components/Api.js';
 import './index.css';
 import { PopupWithConfirm } from '../components/PopupWithConfirm.js';
 
-const api = new Api();
+const api = new Api({
+    url: 'https://mesto.nomoreparties.co/v1/cohort-25',
+    headers: {
+        authorization: '664aaf42-3a4d-4948-aa52-e5498063f0fe',
+        'Content-Type': 'application/json'
+    }
+});
 
 // 1) Добавление новых карт при загрузке страницы
 
@@ -94,28 +100,26 @@ const cardList = new Section({
 // 2) Функционал добавления новой карты через попап
 
 const popupСardAddNew = new PopupWithForm('.popup_card-add', (newdata) => {
-    popupСardAddNew.Loading(true);
+    popupСardAddNew.renderLoading(true);
     api.postCards(newdata)
         .then((data) => {
             const card = createCard(data)
             const cardElement = card.generateCard()
             cardList.addItem(cardElement)
+            popupСardAddNew.close();
 
         })
         .catch((err) => console.log(err))
         .finally(() => {
-            popupСardAddNew.Loading(false);
+            popupСardAddNew.renderLoading(false);
 
         })
-
-    popupСardAddNew.close();
 });
 
 popupСardAddNew.setEventListeners();
 
 openPopupButtonСardAdd.addEventListener('click', () => {
     validatePhoto.removeErrors();
-    validatePhoto.enableValidation();
     popupСardAddNew.open()
 })
 
@@ -134,27 +138,26 @@ confirmDeletePopup.setEventListeners();
 const userInfo = new UserInfo({ name: '.profile__name', info: '.profile__about', avatar: '.profile__avatar', });
 
 const popupEditProfile = new PopupWithForm('.popup_profile-edit', (newdata) => {
-    popupEditProfile.Loading(true);
+    popupEditProfile.renderLoading(true);
     api.setApiUserInfo(newdata)
         .then((data) => {
             userInfo.setUserInfo(data);
+            popupEditProfile.close();
         })
         .catch((err) => {
             console.log(err);
         })
         .finally(() => {
-            popupEditProfile.Loading(false);
+            popupEditProfile.renderLoading(false);
 
         })
 
-    popupEditProfile.close()
 
 });
 
 popupEditProfile.setEventListeners();
 
 openPopupButton.addEventListener('click', () => {
-    validateProfile.enableValidation();
     const userData = userInfo.getUserInfo()
 
     nameInput.value = userData.name
@@ -166,24 +169,22 @@ openPopupButton.addEventListener('click', () => {
 // редактирование аватара
 
 const popupAvatarEdit = new PopupWithForm('.popup_avatar-edit', (newdata) => {
-    popupAvatarEdit.Loading(true);
+    popupAvatarEdit.renderLoading(true);
     api.setAvatar(newdata)
         .then((data) => {
             userInfo.setUserAvatar(data);
+            popupAvatarEdit.close();
         })
         .catch((err) => console.log(err))
         .finally(() => {
-            popupAvatarEdit.Loading(false);
+            popupAvatarEdit.renderLoading(false);
 
         })
-
-    popupAvatarEdit.close();
 });
 
 popupAvatarEdit.setEventListeners()
 
 openAvatarEditButton.addEventListener('click', () => {
-    validateAvatar.enableValidation();
     popupAvatarEdit.open();
 })
 
@@ -198,14 +199,14 @@ validateAvatar.enableValidation();
 
 // 6) При открытии приложения
 
-let userId
+let userId = null
 
 Promise.all([api.getCards(), api.getApiUserInfo()])
     .then(([cards, userData]) => {
 
+        userId = userData._id
         cardList.renderItems(cards);
         userInfo.setUserInfo(userData);
-        userId = userData._id
 
     })
     .catch((err) => console.log(err));
