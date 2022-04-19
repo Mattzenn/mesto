@@ -11,7 +11,7 @@
 
 На странице происходить валидация введенных данных в поля форм.
 
-* [Ссылка на проект](https://mattzenn.github.io/mesto/index.html)
+## [Ссылка на проект](https://mattzenn.github.io/mesto/index.html)
 
 ## Функционал:
 
